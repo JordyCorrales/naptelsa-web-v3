@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,4 +20,43 @@ const { title } = Astro.props;
   <body>
     <slot />
   </body>
+
+  <script>
+    /* Inicio -> Darkmode y Lightmode del nav */
+    const darkmode = document.querySelector("#darkmode");
+    const lightmode = document.querySelector("#lightmode");
+    const darkmodeLogo = document.querySelector("#darkmode_logo");
+    const lightmodeLogo = document.querySelector("#lightmode_logo");
+
+    darkmode.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      if (lightmode.style.display === "none") {
+        lightmode.style.display = "block";
+        lightmodeLogo.style.display = "none";
+        darkmode.style.display = "none";
+        darkmodeLogo.style.display = "block";
+      } else {
+        lightmode.style.display = "none";
+        lightmodeLogo.style.display = "block";
+        darkmode.style.display = "block";
+        darkmodeLogo.style.display = "none";
+      }
+    });
+
+    lightmode.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      if (lightmode.style.display === "none") {
+        lightmode.style.display = "block";
+        lightmodeLogo.style.display = "none";
+        darkmode.style.display = "none";
+        darkmodeLogo.style.display = "block";
+      } else {
+        lightmode.style.display = "none";
+        lightmodeLogo.style.display = "block";
+        darkmode.style.display = "block";
+        darkmodeLogo.style.display = "none";
+      }
+    });
+    /* Fin -> Darkmode y Lightmode del nav */
+  </script>
 </html>
